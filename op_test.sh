@@ -5,9 +5,9 @@
 # repo with TravisCI.
 
 #CURL_TARGET="OpenVPN/easyrsa-unit-tests"
-CURL_TARGET="tincantech/test-easyrsa-unit-tests"
+export ERSA_UTEST_CURL_TARGET="${ERSA_UTEST_CURL_TARGET:-tincantech/test-easyrsa-unit-tests}"
 
-curl -O 'https://raw.githubusercontent.com/$CURL_TARGET/master/easyrsa-unit-tests.sh'
+curl -O "https://raw.githubusercontent.com/$ERSA_UTEST_CURL_TARGET/master/easyrsa-unit-tests.sh"
 
 if [ -e "easyrsa-unit-tests.sh" ];
 then
