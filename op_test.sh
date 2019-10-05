@@ -6,11 +6,11 @@
 
 #CURL_TARGET="OpenVPN/easyrsa-unit-tests"
 
-#curl -O "https://raw.githubusercontent.com/$ERSA_UTEST_CURL_TARGET/master/easyrsa-unit-tests.sh"
+export ERSA_UTEST_CURL_TARGET="${ERSA_UTEST_CURL_TARGET:-tincantech/test-easyrsa-unit-tests}"
+curl -O "https://raw.githubusercontent.com/$ERSA_UTEST_CURL_TARGET/master/easyrsa-unit-tests.sh"
 
 if [ -e "easyrsa-unit-tests.sh" ];
 then
-	export ERSA_UTEST_CURL_TARGET="${ERSA_UTEST_CURL_TARGET:-tincantech/test-easyrsa-unit-tests}"
 	sh easyrsa-unit-tests.sh -vv
 fi
 
