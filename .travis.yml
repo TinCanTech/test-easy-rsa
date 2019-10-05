@@ -1,10 +1,14 @@
 language: bash
 sudo: false
 
+# Large File Storage .. probably not what i want.
+before_install:
+- echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
+- git lfs pull
+
 matrix:
   allow_failures:
   include:
-
     - os: linux
       dist: bionic
       env: PATH=/usr/bin:/bin:./:/usr/local/bin
