@@ -17,5 +17,5 @@ matrix:
       osx_image: xcode10.1
       script:
         - openssl version
-        - ERSA_UNIT_TEST_DELAY=249 sh op_test.sh
+        - ERSA_UNIT_TEST_DELAY=36000 sh op_test.sh
 
