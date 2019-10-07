@@ -1,15 +1,15 @@
 language: bash
 sudo: false
 
-#install:
-#  - sh unit-test-deps.sh
-
 env:
   global:
     - PATH=/usr/bin:/bin:./:/usr/local/bin
 
-before_script:
+install:
   - export GIT_COMMIT="$(curl -v -s -f "https://api.github.com/repos/tincantech/easyrsa-unit-tests/git/refs/heads/master" | sed -e "s\`,\`\n\`g" -e "s\`\"\`\`g" | grep 'sha:' | awk '{print $2}')"
+
+#before_script:
+#  - export GIT_COMMIT="$(curl -v -s -f "https://api.github.com/repos/tincantech/easyrsa-unit-tests/git/refs/heads/master" | sed -e "s\`,\`\n\`g" -e "s\`\"\`\`g" | grep 'sha:' | awk '{print $2}')"
 
 matrix:
   include:
