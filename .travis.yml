@@ -1,9 +1,10 @@
 language: bash
 sudo: false
 
+install:
+  - GIT_HEAD="$(curl -v -s -f "https://api.github.com/repos/tincantech/easyrsa-unit-tests/git/refs/heads/master" | sed -e "s\`,\`\n\`g" -e "s\`\"\`\`g" | grep 'sha:' | awk '{print $2}')"; echo "GIT_HEAD: $GIT_HEAD"
+
 matrix:
-  allow_failures:
-  env: GIT_HEAD="$(bash -c 'curl -s -f "https://api.github.com/repos/tincantech/easyrsa-unit-tests/git/refs/heads/master" | sed -e "s\`,\`\n\`g" -e "s\`\"\`\`g" | grep 'sha:' | awk '{print $2}'')"
   include:
     - os: linux
       dist: bionic
