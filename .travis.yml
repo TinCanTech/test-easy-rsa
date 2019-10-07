@@ -3,6 +3,7 @@ sudo: false
 
 matrix:
   allow_failures:
+  env: GIT_HEAD="$(bash -c 'curl -s -f "https://api.github.com/repos/tincantech/easyrsa-unit-tests/git/refs/heads/master" | sed -e "s\`,\`\n\`g" -e "s\`\"\`\`g" | grep 'sha:' | awk '{print $2}'')"
   include:
     - os: linux
       dist: bionic
@@ -17,5 +18,5 @@ matrix:
       osx_image: xcode10.1
       script:
         - openssl version
-        - ERSA_UNIT_TEST_DELAY=36000 sh op_test.sh
+        - op_test.sh
 
