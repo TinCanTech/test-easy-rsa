@@ -1,14 +1,20 @@
 language: bash
 sudo: false
 
-install:
-  - GIT_HEAD="$(curl -v -s -f "https://api.github.com/repos/tincantech/easyrsa-unit-tests/git/refs/heads/master" | sed -e "s\`,\`\n\`g" -e "s\`\"\`\`g" | grep 'sha:' | awk '{print $2}')"; echo "GIT_HEAD: $GIT_HEAD"
+#install:
+#  - sh unit-test-deps.sh
+
+env:
+  global:
+    - PATH=/usr/bin:/bin:./:/usr/local/bin
+
+before_script:
+  - export GIT_COMMIT="$(curl -v -s -f "https://api.github.com/repos/tincantech/easyrsa-unit-tests/git/refs/heads/master" | sed -e "s\`,\`\n\`g" -e "s\`\"\`\`g" | grep 'sha:' | awk '{print $2}')"
 
 matrix:
   include:
     - os: linux
       dist: bionic
-      env: PATH=/usr/bin:/bin:./:/usr/local/bin
       script:
         - openssl version
         - shellcheck --version
@@ -19,5 +25,4 @@ matrix:
       osx_image: xcode10.1
       script:
         - openssl version
-        - op_test.sh
-
+        - sh op_test.sh
