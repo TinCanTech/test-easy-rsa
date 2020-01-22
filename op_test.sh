@@ -6,8 +6,8 @@
 
 # Set in Travis ERSA_UTEST_CURL_TARGET="tincantech/easyrsa-unit-tests"
 
-ERSA_UTEST_CURL_TARGET="${ERSA_UTEST_CURL_TARGET:-OpenVPN/easyrsa-unit-tests}"
-#ERSA_UTEST_CURL_TARGET="${ERSA_UTEST_CURL_TARGET:-tincantech/easyrsa-unit-tests}"
+#ERSA_UTEST_CURL_TARGET="${ERSA_UTEST_CURL_TARGET:-OpenVPN/easyrsa-unit-tests}"
+ERSA_UTEST_CURL_TARGET="${ERSA_UTEST_CURL_TARGET:-tincantech/easyrsa-unit-tests}"
 #ERSA_UTEST_CURL_TARGET="${ERSA_UTEST_CURL_TARGET:-tincantech/test-easyrsa-unit-tests}"
 
 curl -O "https://raw.githubusercontent.com/$ERSA_UTEST_CURL_TARGET/master/easyrsa-unit-tests.sh"
