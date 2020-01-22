@@ -4,7 +4,8 @@
 # and executes that - allows for disconnected testing from the easy-rsa
 # repo with TravisCI.
 
-# Set in Travis ERSA_UTEST_CURL_TARGET="tincantech/easyrsa-unit-tests"
+# Set in Travis: CUSTOM CONFIG
+# env: ERSA_UTEST_CURL_TARGET="OpenVPN/easyrsa-unit-tests"
 
 #export ERSA_UTEST_CURL_TARGET="${ERSA_UTEST_CURL_TARGET:-OpenVPN/easyrsa-unit-tests}"
 export ERSA_UTEST_CURL_TARGET="${ERSA_UTEST_CURL_TARGET:-tincantech/easyrsa-unit-tests}"
